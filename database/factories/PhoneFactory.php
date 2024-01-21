@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Phone>
  */
-class UserFactory extends Factory
+class PhoneFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -16,10 +16,10 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $user_id = [1, 2, 3, 4, 5];
         return [
-            'name' => fake()->name(),
-            'username' => fake()->unique()->userName(),
-            'email' => fake()->unique()->safeEmail()
+            'user_id' => fake()->unique()->randomElement($user_id),
+            'phone' => fake()->phoneNumber()
         ];
     }
 }
