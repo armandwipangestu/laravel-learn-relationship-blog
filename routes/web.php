@@ -22,3 +22,4 @@ Route::get('/relation/oneToOne', [RelationController::class, 'oneToOne']);
 Route::get('/relation/oneToOneInverse', [RelationController::class, 'oneToOneInverse']);
 Route::get('/relation/oneToMany', [RelationController::class, 'oneToMany']);
 Route::get('/relation/oneToManyInverse', [RelationController::class, 'oneToManyInverse']);
+Route::get('/relation/defaultModels', [RelationController::class, 'defaultModels']);
