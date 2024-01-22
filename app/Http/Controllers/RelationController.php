@@ -10,13 +10,13 @@ use Illuminate\Http\Request;
 
 class RelationController extends Controller
 {
-    public function hasOne(Request $request)
+    public function oneToOne(Request $request)
     {
         $phone = User::find($request->id)->phone;
         return $phone;
     }
 
-    public function belongsTo(Request $request)
+    public function oneToOneInverse(Request $request)
     {
         $user = Phone::find($request->id)->user;
         return $user;

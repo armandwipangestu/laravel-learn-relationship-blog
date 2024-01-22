@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/relation/hasOne', [RelationController::class, 'hasOne']);
-Route::get('/relation/belongsTo', [RelationController::class, 'belongsTo']);
+Route::get('/relation/oneToOne', [RelationController::class, 'oneToOne']);
+Route::get('/relation/oneToOneInverse', [RelationController::class, 'oneToOneInverse']);
 Route::get('/relation/oneToMany', [RelationController::class, 'oneToMany']);
 Route::get('/relation/oneToManyInverse', [RelationController::class, 'oneToManyInverse']);
