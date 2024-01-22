@@ -33,4 +33,10 @@ class RelationController extends Controller
         $post = Comment::find($request->id)->post;
         return $post;
     }
+
+    public function defaultModels(Request $request)
+    {
+        $author = Post::find($request->id)->user;
+        return $author;
+    }
 }
