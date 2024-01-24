@@ -39,4 +39,25 @@ class RelationController extends Controller
         $author = Post::find($request->id)->user;
         return $author;
     }
+
+    public function whereBelongsTo(Request $request)
+    {
+        $user = User::find($request->id);
+
+        // manually build where clause
+        // $posts = Post::where('user_id', $user->id)->get();
+
+        // use whereBelongsTo Method
+        // $posts = Post::whereBelongsTo($user)->get();
+
+        // provide a collection instance
+        $users = User::where('vip', true)->get();
+        $posts = Post::whereBelongsTo($users)->get();
+        // $posts = User::where('vip', true)->with('posts')->get();
+
+        // spesify relationship
+        // $posts = Post::whereBelongsTo($user, 'user')->get();
+        // $posts = $user->posts;
+        return $posts;
+    }
 }

@@ -23,3 +23,4 @@ Route::get('/relation/oneToOneInverse', [RelationController::class, 'oneToOneInv
 Route::get('/relation/oneToMany', [RelationController::class, 'oneToMany']);
 Route::get('/relation/oneToManyInverse', [RelationController::class, 'oneToManyInverse']);
 Route::get('/relation/defaultModels', [RelationController::class, 'defaultModels']);
+Route::get('/relation/whereBelongsTo', [RelationController::class, 'whereBelongsTo']);
