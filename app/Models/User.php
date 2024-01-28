@@ -16,4 +16,19 @@ class User extends Model
     {
         return $this->hasOne(Phone::class);
     }
+
+    public function latestOrder(): HasOne
+    {
+        return $this->hasOne(Order::class)->latestOfMany();
+    }
+
+    public function oldestOrder(): HasOne
+    {
+        return $this->hasOne(Order::class)->oldestOfMany();
+    }
+
+    public function largestOrder(): HasOne
+    {
+        return $this->hasOne(Order::class)->ofMany('price', 'max');
+    }
 }
