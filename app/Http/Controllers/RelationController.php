@@ -60,4 +60,15 @@ class RelationController extends Controller
         // $posts = $user->posts;
         return $posts;
     }
+
+    public function hasOneOfMany(Request $request)
+    {
+        $user = User::find($request->id);
+        $summary = [];
+        $summary['latestOrder'] = $user->latestOrder;
+        $summary['oldestOrder'] = $user->oldestOrder;
+        $summary['largestOrder'] = $user->largestOrder;
+
+        return $summary;
+    }
 }
