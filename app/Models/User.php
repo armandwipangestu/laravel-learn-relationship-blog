@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class User extends Model
@@ -27,8 +28,19 @@ class User extends Model
         return $this->hasOne(Order::class)->oldestOfMany();
     }
 
+    // public function largestOrder(): HasOne
+    // {
+    //     return $this->hasOne(Order::class)->ofMany('price', 'max');
+    // }
+
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    // Converting "Many" Relationship to Has One Relationship
     public function largestOrder(): HasOne
     {
-        return $this->hasOne(Order::class)->ofMany('price', 'max');
+        return $this->orders()->one()->ofMany('price', 'max');
     }
 }
