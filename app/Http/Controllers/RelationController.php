@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use App\Models\Phone;
 use App\Models\Post;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -70,5 +71,11 @@ class RelationController extends Controller
         $summary['largestOrder'] = $user->largestOrder;
 
         return $summary;
+    }
+
+    public function advancedHasOneOfMany(Request $request)
+    {
+        $price = Product::find($request->id)->currentPricing;
+        return $price;
     }
 }
